@@ -1,7 +1,11 @@
 <h1 align="center" >
-  <img src="https://user-images.githubusercontent.com/77810817/131681568-6f823d3d-0db0-455c-af5b-84ab938dc5c6.png" />
+  <img src="https://user-images.githubusercontent.com/77810817/158444130-aaf7fed9-9a33-4f84-bf59-d04261e18052.png" />
 </h1>
-  <p align="center"/> Simulação de um carrinho de compras </p>
+
+<h4 align="center"/> Página de Administração </p>
+
+![image](https://user-images.githubusercontent.com/77810817/158444237-38c436da-ef60-47fa-aa4e-88e91c159e96.png)
+
 
 ## 📋 Tabela de conteúdos
 
