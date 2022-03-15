@@ -20,7 +20,7 @@
 <!--te-->
 
 <h4 align="center">
-  Projeto Finalizado 🚀  
+  Projeto Em Andamento 🚀  
 </h4>
 
 <h3 id="sobre">ℹ Sobre </h3>
