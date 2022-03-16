@@ -4,7 +4,7 @@
 
 <h4 align="center"/> Página de Administração </p>
 
-![image](https://user-images.githubusercontent.com/77810817/158444237-38c436da-ef60-47fa-aa4e-88e91c159e96.png)
+![image](https://user-images.githubusercontent.com/77810817/158680346-68cc69d4-bcc7-427a-b65a-f7baa6a0bbe4.png)
 
 
 ## 📋 Tabela de conteúdos
@@ -41,12 +41,14 @@ Adicionei e aprimorei funcionalidades da aplicação base desenvolvida pelo Dieg
 - [x] Validação de estoque;
 - [x] Exibição de mensagens de erro;
 
-<h3 id="tecnologias"> 🛠 Tecnologias </h3>
+<h3 id="tecnologias"> 📚 Tecnologias </h3>
 
 * React
 * Typescript
 * Next.js
 * ChakraUI
+* React Hook Form
+* Miragejs
 
 <h3 id="requisitos">🔧 Pré Requisitos</h3> 
 
