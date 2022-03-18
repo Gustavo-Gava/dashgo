@@ -5,6 +5,8 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 import { Input } from '../components/Form/Input'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 type  SignInFormData = {
   email: string
@@ -22,9 +24,13 @@ export default function SignIn() {
   })
   const { errors } = formState
 
+  const router = useRouter()
+
   const handleSignIn: SubmitHandler<SignInFormData> = (values, event) => {
     event.preventDefault()
     console.log(errors)
+
+    router.push("/dashboard")
   }
 
   return (
