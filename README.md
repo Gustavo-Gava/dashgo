@@ -27,19 +27,19 @@
 
 Projeto desenvolvido no capítulo 4 do ignite.
 
-O Projeto simula uma página de administração de um blog ou aplicativo semelhante, podendo visualizar usuários, editar e remover.
+Dashgo é página de administração para sua aplicação, te possibilitando visualizar usuários, editar e remover.
 Uma aplicação com design clean e totalmente responsiva, cujo uso pode abranger diversas aplicações, tendo em vista que grande parte das vezes é necessário uma página de administração, então que seja uma ótima página.
 
-Adicionei e aprimorei funcionalidades da aplicação base desenvolvida pelo Diego Fernandes.
+Foi usado o Miragejs na aplicação, simulando um projeto real do mercado do trabalho, implementando buscagem de dados no banco de dados, loadind para os tempos de respotas, tratamento de dados, etc.
+Também foi usado o React Query para podermos colocar os dados do usuário em cache, proporcionando uma melhor experiência para o usuário.
 
 <h3 id="funcionalidades"> ✅ Funcionalidades </h3>
  
-- [x] Adicionar um novo produto ao carrinho;
-- [x] Remover um produto do carrinho;
-- [x] Alterar a quantidade de um produto no carrinho;
-- [x] Cálculo dos preços sub-total e total do carrinho;
-- [x] Validação de estoque;
-- [x] Exibição de mensagens de erro;
+- [x] Visualização de usuários;
+- [x] Edição de usuários;
+- [x] Armazenamento dos dados em cache;
+- [x] Totalmente responsivo;
+- [x] Validação de formulários;
 
 <h3 id="tecnologias"> 📚 Tecnologias </h3>
 
@@ -47,7 +47,7 @@ Adicionei e aprimorei funcionalidades da aplicação base desenvolvida pelo Dieg
 * Typescript
 * Next.js
 * ChakraUI
-* React Hook Form
+* React Query
 * Miragejs
 
 <h3 id="requisitos">🔧 Pré Requisitos</h3> 
@@ -60,7 +60,7 @@ Adicionei e aprimorei funcionalidades da aplicação base desenvolvida pelo Dieg
 
 ```
   # Clone esse projeto 
-  $ git clone 'https://github.com/Gustavo-Gava/ignite-rocketshoes/'
+  $ git clone 'https://github.com/Gustavo-Gava/dashgo'
   
   # Navegue até a pasta do projeto
   
