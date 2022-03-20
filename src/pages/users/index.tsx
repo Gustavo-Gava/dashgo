@@ -3,13 +3,10 @@ import Link from "next/link";
 import { Box, Button, Checkbox, Flex, Heading, Icon, Text, Table, Tbody, Td, Th, Thead, Tr, useBreakpointValue, Spinner } from "@chakra-ui/react";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 
-import { useQuery } from 'react-query'
-
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
-import { useEffect } from "react";
-import { api } from "../../services/api";
+
 import { useUsers } from "../../services/hooks/users/useUsers";
 
 export default function UserList() {
@@ -104,7 +101,12 @@ export default function UserList() {
                   </Tbody>
                 </Table>
 
-                <Pagination />
+                <Pagination 
+                  totalCountOfRegisters={200}
+                  currentPage={5}
+                  registersPerPage={10}
+                  onPageChange={() => {}}
+                />
               </>
             )}
           </Box>
