@@ -1,6 +1,6 @@
-import Link from "next/link";
+import NextLink  from "next/link";
 
-import { Box, Button, Checkbox, Flex, Heading, Icon, Text, Table, Tbody, Td, Th, Thead, Tr, useBreakpointValue, Spinner } from "@chakra-ui/react";
+import { Box, Button, Checkbox, Flex, Heading, Icon, Text, Table, Tbody, Td, Th, Thead, Tr, useBreakpointValue, Spinner, Link } from "@chakra-ui/react";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 
 import { Header } from "../../components/Header";
@@ -9,6 +9,8 @@ import { Sidebar } from "../../components/Sidebar";
 
 import { useUsers } from "../../services/hooks/users/useUsers";
 import { useState } from "react";
+import { queryClient } from "../../services/queryClient";
+import { api } from "../../services/api";
 
 export default function UserList() {
   const [page, setPage] = useState(1)
@@ -19,11 +21,21 @@ export default function UserList() {
     lg: true
   })
 
+  async function handlePrefetchUser(userId: string) {
+    await queryClient.prefetchQuery(['user', userId], async () => {
+      const response = await api.get(`/users/${userId}`)
+
+      return response.data
+    }, {
+      staleTime: 1000 * 60 * 10 // 10 MINUTES
+    })
+  }
+
   return (
     <Box>
       <Header />
 
-        <Flex w="100%" my="6" maxWidth={1480} mx="auto" px="6">
+        <Flex w="100%" my="6" maxWidth={1480} mx="auto" px={["2", "6"]}>
           <Sidebar />
 
           <Box flex="1" borderRadius={8} bg="gray.800" p="8">
@@ -33,7 +45,7 @@ export default function UserList() {
                 { !isLoading && isFetching && <Spinner ml="4" color="gray.500" size="sm" />}
               </Heading>
 
-              <Link href="/users/create" passHref>              
+              <NextLink href="/users/create" passHref>              
                 <Button
                   as="a"
                   size="sm"
@@ -43,7 +55,7 @@ export default function UserList() {
                 >
                   Criar novo
                 </Button>
-              </Link>
+              </NextLink>
             </Flex>
 
             { isLoading ? (
@@ -76,8 +88,10 @@ export default function UserList() {
 
                         <Td px={["4", "4", "6"]}>
                           <Box>
-                            <Text fontWeight="bold">{user.name}</Text>
-                            <Text fontSize="sm" color="gray.300">{user.email}</Text>
+                            <Link color="purple.400" onMouseEnter={() => handlePrefetchUser(user.id)}>
+                              <Text fontWeight="bold">{user.name}</Text>
+                            </Link>
+                            <Text fontSize={["12", "sm"]} color="gray.300">{user.email}</Text>
                           </Box>
                         </Td>
 
