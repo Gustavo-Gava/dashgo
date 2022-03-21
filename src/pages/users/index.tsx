@@ -8,9 +8,11 @@ import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
 
 import { useUsers } from "../../services/hooks/users/useUsers";
+import { useState } from "react";
 
 export default function UserList() {
-  const { data, isLoading, error, isFetching } = useUsers()
+  const [page, setPage] = useState(1)
+  const { data, isLoading, error, isFetching } = useUsers(page)
     
   const isWideVersion = useBreakpointValue({
     base: false,
@@ -66,7 +68,7 @@ export default function UserList() {
                     </Tr>
                   </Thead>
                   <Tbody>
-                    {data.map(user => (
+                    {data.users.map(user => (
                       <Tr key={user.email}>
                         <Td px={["4", "4", "6"]}>
                           <Checkbox colorScheme="pink" />
@@ -102,10 +104,10 @@ export default function UserList() {
                 </Table>
 
                 <Pagination 
-                  totalCountOfRegisters={200}
-                  currentPage={5}
+                  totalCountOfRegisters={data.totalCount}
+                  currentPage={page}
                   registersPerPage={10}
-                  onPageChange={() => {}}
+                  onPageChange={setPage}
                 />
               </>
             )}
