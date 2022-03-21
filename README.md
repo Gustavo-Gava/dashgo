@@ -20,7 +20,7 @@
 <!--te-->
 
 <h4 align="center">
-  Projeto Em Andamento 🚀  
+  Projeto Finalizado 🚀  
 </h4>
 
 <h3 id="sobre">ℹ Sobre </h3>
@@ -63,13 +63,13 @@ Também foi usado o React Query para podermos colocar os dados do usuário em ca
   $ git clone 'https://github.com/Gustavo-Gava/dashgo'
   
   # Navegue até a pasta do projeto
+  $ cd ./dashgo
   
   # Instale as dependências
   $ yarn
   
-  # Rode a API e o projeto
-  $ yarn install
-  $ yarn server
+  # Rode o projeto
+  $ yarn dev
 
   # Estará disponível em: http://localhost:3000
 ```
