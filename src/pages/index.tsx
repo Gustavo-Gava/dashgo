@@ -42,6 +42,7 @@ export default function SignIn() {
     >
       <Flex
         as="form"
+        autoComplete="off"
         w="100%"
         maxW={360}
         bg="gray.800"

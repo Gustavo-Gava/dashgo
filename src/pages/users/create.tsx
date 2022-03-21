@@ -8,6 +8,10 @@ import { Input } from "../../components/Form/Input";
 import { Header } from "../../components/Header";
 import { Sidebar } from "../../components/Sidebar";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useMutation } from "react-query";
+import { api } from "../../services/api";
+import { queryClient } from "../../services/queryClient";
+import { useRouter } from "next/router";
 
 type CreateUserFormData = {
   name: string
@@ -23,14 +27,33 @@ const createUserFormSchema = yup.object().shape({
   password_confirmation: yup.string().oneOf([null, yup.ref("password")], "As senhas precisam ser iguais"),
 })
 
+async function createUser(user: CreateUserFormData) {
+  await api.post('users', {
+    user: {
+      ...user,
+      created_at: new Date()
+    }
+  })
+}
+
 export default function CreateUser() {
+  const router = useRouter()
+
+  const { data, mutateAsync } = useMutation(createUser, {
+    onSuccess: () => {
+      queryClient.invalidateQueries('users')
+    }
+  })
+
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(createUserFormSchema)
   })
   const { errors } = formState
 
-  const handleCreateUser: SubmitHandler<CreateUserFormData> = (values, event) => {
-    console.log(values)
+  const handleCreateUser: SubmitHandler<CreateUserFormData> = async (values, event) => {
+    await mutateAsync(values)
+
+    router.push('/users')
   }
 
   return (
@@ -46,6 +69,7 @@ export default function CreateUser() {
             bg="gray.800"
             p={["6", "8"]}
             as="form"
+            autoComplete="off"
             onSubmit={handleSubmit(handleCreateUser)}
           >
             <Heading size="lg" fontWeight="normal">Criar usuário</Heading>
