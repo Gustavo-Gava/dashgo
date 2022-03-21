@@ -36,9 +36,9 @@ Também foi usado o React Query para podermos colocar os dados do usuário em ca
 <h3 id="funcionalidades"> ✅ Funcionalidades </h3>
  
 - [x] Visualização de usuários;
-- [x] Edição de usuários;
+- [x] Integração com uma fake API;
 - [x] Armazenamento dos dados em cache;
-- [x] Totalmente responsivo;
+- [x] Responsividade;
 - [x] Validação de formulários;
 
 <h3 id="tecnologias"> 📚 Tecnologias </h3>
